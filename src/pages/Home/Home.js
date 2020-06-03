@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import style from './Home.module.scss'
+import styles from './Home.module.scss'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Button from '../../components/Button/Button'
 import { bibleData } from '../../utils/bible'
+import Verse from '../../components/Verse/Verse'
+import Spinner from '../../components/Spinner/Spinner'
 
 const homeContent = 'For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.'
 const homeVerse = 'John 3:16'
@@ -15,26 +17,6 @@ flex-directions: row;
 align-items: center;
 `
 
-const VerseContent = styled.div`
-position: relative;
-display: flex;
-justify-content: center;
-font-size: 1.5rem;
-min-height: 100px;
-width: 500px;
-margin-bottom: 3rem;
-padding-top: 3rem;
-font-style: italic;
-text-shadow: 1px 1px 1px white;
-`
-
-const VerseInfo = styled.div`
-position: absolute;
-top: 0;
-left: 5px;
-font-weight: bold;
-`
-
 const Home = () => {
     const [bookOptions, setBookOptions] = useState(false)
     const [chapterOptions, setChapterOptions] = useState(false)
@@ -43,6 +25,7 @@ const Home = () => {
     const [chapter, setChapter] = useState('(Random)')
     const [verse, setVerse] = useState('(Random)')
     const [displayVerse, setDisplayVerse] = useState({ verse: homeVerse, content: homeContent })
+    const [loading, setLoading] = useState(false)
 
     const getVerse = bibleData()
 
@@ -81,24 +64,26 @@ const Home = () => {
     }
 
     const fetchVerse = () => {
+        setLoading(true)
         if (book === '(Random)') {
-            getVerse().then(res => setDisplayVerse(res))
+            getVerse().then(res => setDisplayVerse(res)).then(() => setLoading(false))
         } else if (chapter === '(Random)') {
-            getVerse(book).then(res => setDisplayVerse(res))
+            getVerse(book).then(res => setDisplayVerse(res)).then(() => setLoading(false))
         } else if (verse === '(Random)') {
-            getVerse(book, chapter).then(res => setDisplayVerse(res))
+            getVerse(book, chapter).then(res => setDisplayVerse(res)).then(() => setLoading(false))
         } else {
-            getVerse(book, chapter, verse).then(res => setDisplayVerse(res))
+            getVerse(book, chapter, verse).then(res => setDisplayVerse(res)).then(() => setLoading(false))
         }
     }
 
     return (
-        <main onClick={event => handleClose(event)} className={style.Home}>
-            <VerseContent>
-                <VerseInfo>{displayVerse.verse}</VerseInfo>
-                {displayVerse.content}
-            </VerseContent>
-            <ChooseVerseDiv className={style['choose-verse']}>
+        <main onClick={event => handleClose(event)} className={styles.Home}>
+            {
+                loading ? <Spinner /> :
+                <Verse info={displayVerse.verse} content={displayVerse.content} />
+            }
+
+            <ChooseVerseDiv className={styles['choose-verse']}>
                 <Dropdown
                     toggleBook={toggleBook}
                     toggleChapter={toggleChapter}
