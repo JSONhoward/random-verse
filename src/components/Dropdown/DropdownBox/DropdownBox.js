@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { FaCaretDown } from 'react-icons/fa'
 import styled from 'styled-components'
 
 import style from './DropdownBox.module.scss'
+import {StateContext} from '../../../store/state'
 
 const DropdownDiv = styled.div`
     position: relative;
@@ -41,6 +42,8 @@ const OptionsDiv = styled.div`
     `
 
 const DropdownBox = props => {
+    const [state, dispatch] = useContext(StateContext)
+
     let dropdownList
     if (props.type === 'book') {
         dropdownList = props.list.map((item, i) => {

@@ -26,7 +26,10 @@ const Footer = () => {
         <FooterStyled>
         <FooterDiv></FooterDiv>
         <FooterDiv>&copy; 2020 Random-Verse</FooterDiv>
-        <FooterDiv><a className={styles.github} href='http://www.github.com/JSONhoward'><FaGithub size={'2rem'}/><p>Github Repo</p></a></FooterDiv>
+        <FooterDiv>
+        <a className={styles.github} target="_blank" rel="noopener noreferrer" href='http://www.github.com/JSONhoward/random-verse'><FaGithub size={'2rem'}/></a>
+        <a className={styles.github} target="_blank" rel="noopener noreferrer" href='http://www.github.com/JSONhoward/random-verse'><p>Github Repo</p></a>
+        </FooterDiv>
         </FooterStyled>
     )
 }
