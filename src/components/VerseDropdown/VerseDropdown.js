@@ -38,6 +38,7 @@ const OptionsDiv = styled.div`
     padding: 2px;
     overflow-y: scroll;
     z-index: 5;
+    cursor: pointer;
     `
 
 const ListItem = styled.div`
@@ -76,7 +77,7 @@ const VerseDropdown = () => {
                 id={i}
                 onClick={() => chooseVerse(item)}
                 key={i}
-                onKeyDown={e => {
+                onKeyPress={e => {
                     if (e.charCode === 32 || e.charCode === 13) {
                         chooseVerse(item)
                     }

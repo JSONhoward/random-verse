@@ -38,9 +38,12 @@ export const reducer = (state, action) => {
             state = {...state, verse, verseOptions: false}
             return state;
         case 'CLOSE_ALL':
-            if(state.bookOptions) {
-                state = {...state, bookOptions: false}
-            }
+                state = {
+                    ...state,
+                    bookOptions: state.bookOptions && false,
+                    chapterOptions: state.chapterOptions && false,
+                    verseOptions: state.verseOptions && false
+                }
             return state;
         default:
             return state;

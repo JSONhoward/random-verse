@@ -36,6 +36,7 @@ const OptionsDiv = styled.div`
     padding: 2px;
     overflow-y: scroll;
     z-index: 5;
+    cursor: pointer;
     `
 
 const ListItem = styled.div`

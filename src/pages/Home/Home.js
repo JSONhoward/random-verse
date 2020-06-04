@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import styles from './Home.module.scss'
 import Dropdown from '../../components/Dropdown/Dropdown'
 import Button from '../../components/Button/Button'
 import { bibleData } from '../../utils/bible'
@@ -15,6 +14,15 @@ flex-directions: row;
 align-items: center;
 `
 
+const MainStyled = styled.main`
+height: calc(100vh - 8rem);
+width: 100vw;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`
+
 const Home = () => {
     const [state, dispatch] = useContext(StateContext)
 
@@ -22,12 +30,6 @@ const Home = () => {
 
     const handleClickClose = e => {
         if (!e.target.id && state.bookOptions) {
-            dispatch({ type: 'CLOSE_ALL' })
-        }
-    }
-
-    const handleEscapeClose = e => {
-        if (e.key === 'Escape' && e.target.id) {
             dispatch({ type: 'CLOSE_ALL' })
         }
     }
@@ -46,17 +48,17 @@ const Home = () => {
     }
 
     return (
-        <main onKeyDown={e => handleEscapeClose(e)} onClick={e => handleClickClose(e)} className={styles.Home}>
+        <MainStyled onClick={e => handleClickClose(e)}>
             {
                 state.loading ? <Spinner /> :
                     <Verse />
             }
 
-            <ChooseVerseDiv className={styles['choose-verse']}>
+            <ChooseVerseDiv>
                 <Dropdown />
                 <Button fetch={fetchVerse} />
             </ChooseVerseDiv>
-        </main>
+        </MainStyled>
     )
 }
 

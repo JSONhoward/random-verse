@@ -1,8 +1,18 @@
 import React from 'react'
 import { FaCircleNotch } from 'react-icons/fa'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-import styles from './Spinner.module.scss'
+const spin = keyframes`
+    0% {
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+`
 
 const SpinnerStyled = styled.div`
 display: flex;
@@ -13,12 +23,16 @@ width: 500px;
 margin-bottom: 3rem;
 `
 
+const SpinnerShape = styled.div`
+animation: ${spin} 2s linear infinite forwards;
+`
+
 const Spinner = () => {
     return (
         <SpinnerStyled>
-            <div className={styles.spinner}>
+            <SpinnerShape>
                 <FaCircleNotch size={'4rem'} />
-            </div>
+            </SpinnerShape>
         </SpinnerStyled>
     )
 }
