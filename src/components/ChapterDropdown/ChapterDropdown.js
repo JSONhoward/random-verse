@@ -17,11 +17,17 @@ const DropdownDiv = styled.div`
     box-shadow: 2px 2px 5px black;
     background-color: white;
     font-size: 1.5rem;
+
+    @media (max-width: 500px) {
+        height: 3rem;
+        width: 5rem;
+        font-size: 1rem;
+    }
     `
 
 const OptionsDiv = styled.div`
     position: absolute;
-    top: 65px;
+    top: 50px;
     left: 0px;
     display: ${props => props.isOpen ? 'flex' : 'none'};
     flex-direction: column;
@@ -37,6 +43,12 @@ const OptionsDiv = styled.div`
     overflow-y: scroll;
     z-index: 5;
     cursor: pointer;
+
+    @media (max-width: 500px) {
+        width: 5rem;
+        font-size: 1rem;
+        
+    }
     `
 
 const ListItem = styled.div`
@@ -57,6 +69,10 @@ const Caret = styled.div`
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
     cursor: pointer;
+
+    @media (max-width: 500px) {
+        width: 1rem;
+    }
     `
 
 const ChapterDropdown = () => {

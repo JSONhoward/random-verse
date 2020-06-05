@@ -12,12 +12,38 @@ background-color: white;
 box-shadow: 0px -1px 5px grey;
 `
 
-const FooterDiv = styled.div`
+const FooterDivLeft= styled.div`
 display: flex;
 flex: 1;
 align-items: center;
 justify-content: center;
 height: 100%;
+
+@media (max-width: 500px) {
+display: none;
+}
+`
+const FooterDivMiddle = styled.div`
+display: flex;
+flex: 1;
+align-items: center;
+justify-content: center;
+height: 100%;
+
+@media (max-width: 500px) {
+
+}
+`
+const FooterDivRight = styled.div`
+display: flex;
+flex: 1;
+align-items: center;
+justify-content: center;
+height: 100%;
+
+@media (max-width: 500px) {
+
+}
 `
 
 const GithubLink = styled.a`
@@ -29,19 +55,23 @@ font-weight: bold;
 p {
     margin-left: .5rem;
 }
+
+@media (max-width: 500px) {
+font-size: medium;
+}
 `
 
 const Footer = () => {
     return (
         <FooterStyled>
-            <FooterDiv></FooterDiv>
-            <FooterDiv>&copy; 2020 Random-Verse</FooterDiv>
-            <FooterDiv>
+            <FooterDivLeft></FooterDivLeft>
+            <FooterDivMiddle>&copy; 2020 Random Verse</FooterDivMiddle>
+            <FooterDivRight>
                 <GithubLink target="_blank" rel="noopener noreferrer" href='http://www.github.com/JSONhoward/random-verse'><FaGithub size={'2rem'} />
                 </GithubLink>
                 <GithubLink target="_blank" rel="noopener noreferrer" href='http://www.github.com/JSONhoward/random-verse'><p>Github Repo</p>
                 </GithubLink>
-            </FooterDiv>
+            </FooterDivRight>
         </FooterStyled>
     )
 }

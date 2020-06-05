@@ -12,6 +12,11 @@ const ChooseVerseDiv = styled.div`
 display: flex;
 flex-directions: row;
 align-items: center;
+
+@media (max-width: 500px) {
+    flex-direction: column;
+    justify-content: space-between;
+}
 `
 
 const MainStyled = styled.main`
@@ -53,11 +58,10 @@ const Home = () => {
                 state.loading ? <Spinner /> :
                     <Verse />
             }
-
             <ChooseVerseDiv>
                 <Dropdown />
+                </ChooseVerseDiv>
                 <Button fetch={fetchVerse} />
-            </ChooseVerseDiv>
         </MainStyled>
     )
 }

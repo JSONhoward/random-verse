@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ButtonDiv = styled.button`
-height: 4rem;
+height: 3rem;
 width: 6rem;
-margin-left: 2rem;
+margin-top: 1.5rem;
 background-color: whitesmoke;
 border-color: whitesmoke;
 border-radius: .5rem;
