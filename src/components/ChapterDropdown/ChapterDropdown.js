@@ -27,7 +27,7 @@ const DropdownDiv = styled.div`
 
 const OptionsDiv = styled.div`
     position: absolute;
-    top: 50px;
+    top: 65px;
     left: 0px;
     display: ${props => props.isOpen ? 'flex' : 'none'};
     flex-direction: column;
@@ -47,7 +47,6 @@ const OptionsDiv = styled.div`
     @media (max-width: 500px) {
         width: 5rem;
         font-size: 1rem;
-        
     }
     `
 
@@ -65,7 +64,7 @@ const Caret = styled.div`
     justify-content: center;
     height: 100%;
     width: 2rem;
-    background-color: whitesmoke;
+    background: linear-gradient(to bottom, whitesmoke, lightgrey);
     border-top-right-radius: .5rem;
     border-bottom-right-radius: .5rem;
     cursor: pointer;

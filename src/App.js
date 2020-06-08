@@ -13,18 +13,28 @@ background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 overflow-x: hidden;
 `
 
-function App() {
+const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  const handleClickClose = e => {
+    if (!e.target.id && state.bookOptions) {
+      dispatch({ type: 'CLOSE_ALL' })
+    } else if (!e.target.id && state.chapterOptions) {
+      dispatch({ type: 'CLOSE_ALL' })
+    } else if (!e.target.id && state.verseOptions) {
+      dispatch({ type: 'CLOSE_ALL' })
+    }
+  }
 
   const handleEscapeClose = e => {
     if (e.key === 'Escape' && e.target.id) {
-        dispatch({ type: 'CLOSE_ALL' })
+      dispatch({ type: 'CLOSE_ALL' })
     }
-}
+  }
 
   return (
     <StateContext.Provider value={[state, dispatch]}>
-      <AppStyled tabIndex='0' onKeyDown={e => handleEscapeClose(e)}>
+      <AppStyled onClick={e => handleClickClose(e)} tabIndex='0' onKeyDown={e => handleEscapeClose(e)}>
         <Header />
         <Router>
           <Switch>

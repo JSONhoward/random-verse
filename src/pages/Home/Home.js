@@ -33,12 +33,6 @@ const Home = () => {
 
     const getVerse = bibleData()
 
-    const handleClickClose = e => {
-        if (!e.target.id && state.bookOptions) {
-            dispatch({ type: 'CLOSE_ALL' })
-        }
-    }
-
     const fetchVerse = () => {
         dispatch({ type: 'LOADING_TRUE' })
         if (state.book === '(Random)') {
@@ -53,7 +47,7 @@ const Home = () => {
     }
 
     return (
-        <MainStyled onClick={e => handleClickClose(e)}>
+        <MainStyled>
             {
                 state.loading ? <Spinner /> :
                     <Verse />
