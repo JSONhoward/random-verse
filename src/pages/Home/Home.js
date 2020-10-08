@@ -54,8 +54,8 @@ const Home = () => {
             }
             <ChooseVerseDiv>
                 <Dropdown />
-                </ChooseVerseDiv>
-                <Button fetch={fetchVerse} />
+            </ChooseVerseDiv>
+            <Button fetch={fetchVerse} />
         </MainStyled>
     )
 }

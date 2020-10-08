@@ -1,16 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 
+import {DropdownStyled} from './styles'
 import BookDropdown from '../BookDropdown/BookDropdown'
 import ChapterDropdown from '../ChapterDropdown/ChapterDropdown'
 import VerseDropdown from '../VerseDropdown/VerseDropdown'
-
-const DropdownStyled = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-`
 
 const Dropdown = () => {
     return (

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Tests Snapshot Test 1`] = `
+<header
+  className="sc-AxjAm gIlwkJ"
+>
+  <div
+    className="sc-AxirZ fptRDo"
+  >
+    Random Verse
+  </div>
+</header>
+`;
