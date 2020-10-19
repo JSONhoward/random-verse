@@ -1,5 +1,7 @@
 # Random Verse
 
+<img src='./src/images/bible-verse-main.png' alt='Random Verse Website screenshot' width='500px' height='250px'>
+
 A project to generate a random bible verse (KJV)
 
 [Demo](https://random-verse.web.app/)
@@ -10,6 +12,16 @@ install dependencies
 
 ```bash
 yarn install
+```
+
+## Setup 
+
+The bible data is from [API.Bible](https://scripture.api.bible/)
+
+So you will need to get an api key and place into an ```.env``` file.
+
+```javascript
+REACT_APP_BIBLE_API= //API key here
 ```
 
 ## Start development server
